@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:sam_bot/constants/constants.dart';
 import 'package:sam_bot/services/assets_manager.dart';
+import 'package:sam_bot/widgets/text_widget.dart';
 
 import '../widgets/chat_widget.dart';
 
@@ -40,7 +41,30 @@ class ChatScreenState extends State<ChatScreen> {
           title: const Text('Sam Bot'),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () async {
+                await showModalBottomSheet(
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(20),
+                      ),
+                    ),
+                    backgroundColor: scaffoldBackgroundColor,
+                    context: context,
+                    builder: (context) {
+                      return Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Row(
+                          children: const [
+                            Flexible(
+                                child: TextWidget(
+                              label: "Choosen Model",
+                              fontSize: 16,
+                            )),
+                          ],
+                        ),
+                      );
+                    });
+              },
               icon: const Icon(Icons.more_vert_rounded),
               color: Colors.white,
             ),
