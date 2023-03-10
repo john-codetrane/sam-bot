@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sam_bot/screens/chat_screen.dart';
+// ignore: library_prefixes
+import 'constants/constants.dart' as Constants;
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +12,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp(
+      title: 'Sam bot',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          scaffoldBackgroundColor: Constants.scaffoldBackgroundColor,
+          appBarTheme: const AppBarTheme(color: Constants.cardColor)),
+      home: const ChatScreen(),
     );
   }
 }
