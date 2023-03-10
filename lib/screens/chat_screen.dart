@@ -3,6 +3,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:sam_bot/constants/constants.dart';
 import 'package:sam_bot/services/assets_manager.dart';
 
+import '../widgets/chat_widget.dart';
+
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
 
@@ -49,9 +51,14 @@ class ChatScreenState extends State<ChatScreen> {
             children: [
               Flexible(
                 child: ListView.builder(
-                  itemCount: 6,
+                  itemCount: 7,
                   itemBuilder: (context, index) {
-                    return Text("Hello");
+                    return ChatWidget(
+                      msg: chatMessages[index]["msg"].toString(),
+                      chatIndex: int.parse(
+                        chatMessages[index]["chatIndex"].toString(),
+                      ),
+                    );
                   },
                 ),
               ),
