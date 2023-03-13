@@ -1,7 +1,32 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/text_widget.dart';
+
 const Color scaffoldBackgroundColor = Color(0xFF343541);
 const Color cardColor = Color(0xFF444654);
+
+List<String> models = [
+  'Model1',
+  'Model2',
+  'Model3',
+  'Model4',
+  'Model5',
+  'Model6',
+];
+
+List<DropdownMenuItem<String>>? get getModelsItem {
+  List<DropdownMenuItem<String>>? modelItems =
+      List<DropdownMenuItem<String>>.generate(
+          models.length,
+          (index) => DropdownMenuItem(
+              value: models[index],
+              child: TextWidget(
+                label: models[index],
+                fontSize: 15,
+              )));
+
+  return modelItems;
+}
 
 final chatMessages = [
   {
